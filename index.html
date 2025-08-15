@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduTime | Pomodoro Focus App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button id="toggleTheme">🌙</button>
+  </div>
+  <div class="container">
+    <h1>EduTime ⏳</h1>
+    <p class="quote" id="quote">"Stay focused, one task at a time."</p>
+
+    <div class="timer">
+      <h2 id="time">25:00</h2>
+      <div class="controls">
+        <button id="start">▶ Start</button>
+        <button id="pause">⏸ Pause</button>
+        <button id="reset">🔁 Reset</button>
+      </div>
+    </div>
+
+    <div class="modes">
+      <button data-mode="pomodoro" class="active">Pomodoro</button>
+      <button data-mode="short">Short Break</button>
+      <button data-mode="long">Long Break</button>
+    </div>
+
+    <div class="progress">
+      <p>Sessions Completed: <span id="sessions">0</span></p>
+      <canvas id="progressChart" width="300" height="150"></canvas>
+    </div>
+
+    <div class="music">
+      <label>🎵 Background Music:</label>
+      <select id="musicSelect">
+        <option value="">None</option>
+        <option value="sounds/music1.mp3">Focus Vibes</option>
+        <option value="sounds/music2.mp3">Lo-Fi Chill</option>
+        <option value="sounds/music3.mp3">Deep Concentration</option>
+        <option value="sounds/music4.mp3">Ambient Flow</option>
+        <option value="sounds/music5.mp3">Ocean Calm</option>
+      </select>
+      <audio id="bgMusic" loop></audio>
+    </div>
+
+    <audio id="alarm" src="sounds/bell.mp3"></audio>
+  </div>
+
+  <!-- Timer Setup -->
+  <section class="custom-timer">
+    <h3>🛠️ Set Your Own Timer</h3>
+    <label>Minutes: <input type="number" id="customMinutes" min="1" value="25"></label>
+    <label>Seconds: <input type="number" id="customSeconds" min="0" value="0"></label>
+    <button id="applyCustomTimer">✅ Apply Timer</button>
+  </section>
+
+  <!-- Alarm Setup -->
+  <section class="set-alarm">
+    <h3>🔔 Set Alarm</h3>
+    <input type="time" id="alarmTime">
+    <button id="setAlarmBtn">🕒 Set Alarm</button>
+    <div id="alarmMsg"></div>
+  </section>
+
+  <!-- World Clock -->
+  <section class="world-clock">
+    <h3>🌍 World Clock</h3>
+    <div id="worldClocks">
+      <p>New York: <span id="nyTime"></span></p>
+      <p>London: <span id="londonTime"></span></p>
+      <p>Tokyo: <span id="tokyoTime"></span></p>
+      <p>Johannesburg: <span id="jhbTime"></span></p>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
